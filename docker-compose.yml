@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  firstnote.api:
+    image: ${DOCKER_REGISTRY-}fbnquestdocker/firstnoteapi
+    build:
+      context: .
+      dockerfile: FirstNote.Api/Dockerfile
+    ports:
+     - "9031:80"
+
+
+  firstnotebackgroundservice:
+    image: ${DOCKER_REGISTRY-}fbnquestdocker/firstnotebackgroundservice
+    build:
+      context: .
+      dockerfile: FirstNote.BackgroundService/Dockerfile
+    ports:
+     - "9131:80"
